@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
   });
 
-  $('.delete-centeradmin').on('click', function(e){
+  $('.delete-admincenter').on('click', function(e){
     $target = $(e.target);
     const id = $target.attr('data-id');
     $.ajax({

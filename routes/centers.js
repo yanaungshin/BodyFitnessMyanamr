@@ -137,23 +137,36 @@ router.post('/edit/:id', upload.single('artphoto'), function(req, res, next){
 
 
 router.delete('/:id', function(req, res){
-  if (!req.user._id) {
-    res.status(500).send();
-  }
-  let query = {_id:req.params.id}
+  if (req.user.type == 'admin') {
+    let query = {_id:req.params.id}
 
-  Center.findById(req.params.id, function(err, center){
-    if (center.author != req.user._id) {
+    Center.findById(req.params.id, function(err, center){
+        Center.remove(query, function(err){
+          if (err) {
+            console.log(err);
+          }
+          res.send('Success');
+        });
+    });
+  } else {
+    if (!req.user._id) {
       res.status(500).send();
-    } else {
-      Center.remove(query, function(err){
-        if (err) {
-          console.log(err);
-        }
-        res.send('Success');
-      });
     }
-  });
+    let query = {_id:req.params.id}
+
+    Center.findById(req.params.id, function(err, center){
+      if (center.author != req.user._id) {
+        res.status(500).send();
+      } else {
+        Center.remove(query, function(err){
+          if (err) {
+            console.log(err);
+          }
+          res.send('Success');
+        });
+      }
+    });
+  }
 });
 
 //Access Control
