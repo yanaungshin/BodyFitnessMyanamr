@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/admin/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/admin/nav.ejs %>
+          <div class="container-fluid">
+            <table>
+              <h1><%= owner.username %></h1>
+              <tr>
+                <td><label for="name"> Name</label></td>
+                <td><p>-</p></td>
+                <td><h6><%= owner.name %></h6></td>
+              </tr>
+              <tr>
+                <td><label for="username">User Name</label></td>
+                <td><p>-</p></td>
+                <td><h6><%= owner.username %></h6></td>
+              </tr>
+              <tr>
+                <td><label for="email">Email</label></td>
+                <td><p>-</p></td>
+                <td><h6><%= owner.email %></h6></td>
+              </tr>
+            </table>
+            <hr>
+                <a class="btn btn-outline-danger btn-sm delete-owner" href="/owners/delete/'+id" data-id=<%=owner._id%>>Delete</a>
+          </div>
+      </div>
+    </div>
+    <% include ../partials/admin/footer.ejs %>
+  </body>
+  <% include ../partials/admin/scripts.ejs %>
+</html>

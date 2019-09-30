@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/admin/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/admin/nav.ejs %>
+        <div class="container-fluid">
+          <table>
+            <tr>
+              <td><label for="centername">Trainer Name</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.trainername %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="Address">Addres</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.address %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="phone">Phone</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.phone %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="email">Email</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.email %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="age">Age</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.age %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="certificate">Certificate</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.certificate %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="trainerfees">Trainer Fees</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.trainerfees %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="classes">Classes</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.classes %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="classes">Gym</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.gym %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="trainfo">Other Infomation</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.trainfo %></h6></td>
+            </tr>
+            <tr>
+              <td><label for ="photo">Photo</label></td>
+              <td><p>-</p></td>
+              <td><div class="teacher-profile">
+                <% if (trainer.traphoto) { %>
+                  <img src="<%= trainer.traphoto %>" style="width:280px; height:280px; border-style:none;" alt="Trainer Photo">
+                <% } else { %>
+                  <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+                <% } %>
+              </div></td>
+            </tr>
+
+            <tr>
+              <td><label for="updated">Last Updated</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= trainer.updated %></h6></td>
+            </tr>
+          </table>
+          <hr>
+              <a class="btn btn-outline-danger delete-article" href="javascript:del('<%= trainer._id %>')" role="button" >Delete</a>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/admin/footer.ejs %>
+  </body>
+  <% include ../partials/admin/scripts.ejs %>
+</html>

@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <br>
+    <h1><%= title %></h1>
+    <br>
+    <ul>
+      <% if (articles) { %>
+        <% articles.forEach(function(article) { %>
+            <li class="list-group-item">
+              <a href="/articles/<%=article._id%>"> <%= article.title %></a>
+            </li>
+        <% }); %>
+      <% } else { %>
+        <h3><%= title %></h3>
+      <% } %>
+    </ul>
+</div>

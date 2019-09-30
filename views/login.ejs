@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          <br><br><br>
+          <div class="col-md-3 m-auto">
+            <div class="card card-body">
+              <h1 class="text-center md-4">
+                Welcome
+              </h1>
+              <form action="/owners/login" method="post">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Username</label>
+                  <input 
+                  type="name" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Username"
+                  name="username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input 
+                  type="password" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Password"
+                  name="password">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                <div class="form-group">
+                    <h5>No Account?</h5><a href="/owners/register"><span style="color: blue">Create One!</span></a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>

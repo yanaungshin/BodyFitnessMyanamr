@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include ../partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/nav.ejs %>
+        <div class="container-fluid">
+          <div class="trainer-photo">
+            <% if (trainer.traphoto) { %>
+              <img src="<%= trainer.traphoto %>" style="width:280px; height:280px; border-style:none;" alt="Trainer Photo">
+            <% } else { %>
+              <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+            <% } %>
+          </div>
+          <br>
+          <h1>Trainer Name: <%= trainer.trainername  %></h1>
+          <p>Address: <%= trainer.address  %></p>
+          <p>Phone: <%= trainer.phone  %></p>
+          <p>Email: <%= trainer.email  %></p>
+          <p>Trainer Feed: <%= trainer.trainerfeed  %></p>
+          <p>Gym: <%= trainer.gym  %></p>
+          <p>Classes: <%= trainer.classes  %></p>
+          <h6>Added by <%= author %></h6>
+          <br>
+          <p><%= trainer.trainfo %></p>
+          <hr>
+          <% if(user){ %>
+            <% if(user.id == trainer.author){ %>
+              <a class="btn btn-outline-secondary" href="/trainers/edit/<%= trainer._id %>" role="button">Edit</a>
+              <a class="btn btn-outline-danger delete-article" href="javascript:del('<%= trainer._id %>')" role="button">Delete</a>
+            <% } %>
+          <% } %>
+
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+  <% include ../partials/scripts.ejs %>
+</html>

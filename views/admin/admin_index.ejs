@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/admin/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/admin/nav.ejs %>
+        <% if (user) { %>
+          <div class="container-fluid">
+            <br>
+              <div class="col-md-12">
+                  <div class="card strpied-tabled-with-hover">
+                      <div class="card-header ">
+                          <h4 class="card-title">Owner List</h4>
+                          <p class="card-category">There are awesome <%= owners.length %> owners.</p>
+                      </div>
+                      <div class="card-body table-full-width table-responsive">
+                          <table class="table table-hover table-striped">
+                              <thead>
+                                  <th>Profile</th>
+                                  <th>Name</th>
+                                  <th>Username</th>
+                                  <th>Email</th>
+                                  <!-- <th>Address</th> -->
+                              </thead>
+                              <tbody>
+                              <% if (owners && owners.length > 0) { %>
+                                <% owners.forEach(function(owner) { %>
+                                  <tr>
+                                    <td><%= owner.name %></td>
+                                    <td><%= owner.name %></td>
+                                    <td><%= owner.username %></td>
+                                    <td><%= owner.email %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm delete-owner" href="#" data-id=<%=owner._id%>>Delete</a></td>
+                                  </tr>
+                                <% }); %>
+                              <% } else { %>
+                                <h1 style="text-align:center;"> Sorry ! No Owner !</h1>
+                              <% } %>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div><br>
+              <div class="col-md-12">
+                  <div class="card strpied-tabled-with-hover">
+                      <div class="card-header ">
+                          <h4 class="card-title">Center List</h4>
+                          <p class="card-category">There are awesome <%= centers.length %> centers.</p>
+                      </div>
+                      <div class="card-body table-full-width table-responsive">
+                          <table class="table table-hover table-striped">
+                              <thead>
+                                  <th>Center name</th>
+                                  <th>City</th>
+                                  <th>Phone number</th>
+                                  <th>Address</th>
+                                  <!-- <th>Address</th> -->
+                              </thead>
+                              <tbody>
+                              <% if (centers && centers.length > 0) { %>
+                                <% centers.forEach(function(center) { %>
+                                  <tr>
+                                    <td><%= center.centername %></td>
+                                    <td><%= center.city %></td>
+                                    <td><%= center.phone %></td>
+                                    <td><%= center.address %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm delete-centeradmin" href="#" data-id=<%=center._id%>>Delete</a></td>
+                                  </tr>
+                                <% }); %>
+                              <% } else { %>
+                                <h1 style="text-align:center;"> Sorry ! No Center !</h1>
+                              <% } %>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div><br>
+              <div class="col-md-12">
+                  <div class="card strpied-tabled-with-hover">
+                      <div class="card-header ">
+                          <h4 class="card-title">Trainer List</h4>
+                          <p class="card-category">There are awesome <%= trainers.length %> trainers.</p>
+                      </div>
+                      <div class="card-body table-full-width table-responsive">
+                          <table class="table table-hover table-striped">
+                              <thead>
+                                  <th>Trainer name</th>
+                                  <th>Gym</th>
+                                  <th>Age</th>
+                                  <th>Address</th>
+                                  <!-- <th>Address</th> -->
+                              </thead>
+                              <tbody>
+                              <% if (trainers && trainers.length > 0) { %>
+                                <% trainers.forEach(function(trainer) { %>
+                                  <tr>
+                                    <td><%= trainer.trainername %></td>
+                                    <td><%= trainer.gym %></td>
+                                    <td><%= trainer.age %></td>
+                                    <td><%= trainer.address %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm delete-trainer" href="#" data-id=<%=trainer._id%>>Delete</a></td>
+                                  </tr>
+                                <% }); %>
+                              <% } else { %>
+                                <h1 style="text-align:center;"> Sorry ! No Center !</h1>
+                              <% } %>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div><br>
+        <% } else { %>
+          <div class="container-fluid">
+            <h2>Welcome to Admin Page</h2>
+            <h3>Please Login for Access !</h3>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+    <% include ../partials/admin/footer.ejs %>
+  </body>
+  <% include ../partials/admin/scripts.ejs %>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <% include ../../partials/admin/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../../partials/admin/nav.ejs %>
+        <div class="container-fluid">
+
+          <h1><%= title %></h1>
+
+          <form action="/admin/centers/add" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Center Name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" name="centername">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">City</label>
+              <select type="text" class="form-control" name="city">
+                <option value="yangon">Yangon</option>
+                <option value="mandalay">Mandalay</option>
+                <option value="naypyitaw">Naypyitaw</option>
+                <option value="bago">Bago</option>
+                <option value="mawlamyine">Mawlamyine</option>
+                <option value="taunggyi">Taunggyi</option>
+                <option value="pyay">Pyay</option>
+                <option value="mrauk-u">Mrauk-U</option>
+                <option value="mongwa">Mongwa</option>
+                <option value="sittwe">Sittwe</option>
+                <option value="taunggo">Taunggo</option>
+                <option value="pathein">Pathein</option>
+                <option value="myeik">Myeik</option>
+                <option value="kalaw">Kalaw</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Address</label>
+              <input type="text" class="form-control" id="exampleFormControlInput2" name="address">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">phone</label>
+              <input type="number" class="form-control" id="exampleFormControlInput3" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Open time</label>
+              <input type="time" class="form-control" id="exampleFormControlInput4" name="opttime">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Close time</label>
+              <input type="time" class="form-control" id="exampleFormControlInput5" name="closetime">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Member fees</label>
+              <input type="nember" class="form-control" id="exampleFormControlInput6" name="memberfees">
+            </div>
+            <div class="form-group">
+              <label for="photo">Photo:</label>
+              <input type="file" name="artphoto" accept="image/*"><p></p>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Select Class</label>
+              <select class="mdb-select md-form" multiple name="classes">
+                <option value="" disabled selected>Choose your Class</option>
+                <option value="yoga" name="classes">Yoga</option>
+                <option value="kickboxing" name="classes">Kickboxing</option>
+                <option value="personaltraining" name="classes">Personal Training</option>
+                <option value="zumba" name="classes">Zumba</option>
+                <option value="Kilocycle" name="classes">Kilocycle</option>
+                <option value="barre-less-barre" name="classes">Barre-less-barre</option>
+                <option value="dance" name="classes">Cardio funk Dance Party</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Other Infomation</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="otinfo">
+              </textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <% include ../../partials/admin/footer.ejs %>
+  </body>
+  <% include ../../partials/admin/scripts.ejs %>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+
+          <h1><%= title %></h1>
+          <ul>
+            <% centers.forEach(function(center) { %>
+                <!-- <h3>There are no article yet now !</h3> -->
+                <li class="list-group-item">
+                  <a href="/centers/<%=center._id%>"> <%= center.centername %></a>
+                </li>
+            <% }); %>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>

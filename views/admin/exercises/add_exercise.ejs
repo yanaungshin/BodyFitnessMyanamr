@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <% include ../../partials/admin/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../../partials/admin/nav.ejs %>
+        <div class="container-fluid">
+
+          <h1><%= title %></h1>
+
+          <form action="/exercises/admin/add" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Exercise Name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" name="exercisename">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Choice Exercse</label>
+              <select type="text" class="form-control" name="bodypart">
+                <option value="gym">Gym Eexercise</option>
+                <option value="home">Home Workout</option>
+                <option value="pregnany">Pregnanay Exercise</option>
+                <option value="dumbeel">Dumbeel Exercise</option>
+                <option value="bodyweight">Bodyweight Exercise (no equitment)</option>
+                <option value="eftb">Exercise for the beach</option>
+                <option value="7mins">7-minutes Workout</option>
+                <option value="yoga">Yoga</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="photo">Photo:</label>
+              <input type="file" name="exephoto" accept="image/*"><p></p>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Other Infomation</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="exeinfo">
+              </textarea>
+            </div>
+            <button type="submit">Add Exercise</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <% include ../../partials/admin/footer.ejs %>
+  </body>
+  <% include ../../partials/admin/scripts.ejs %>
+</html>

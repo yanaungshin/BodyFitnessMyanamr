@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include ../partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/nav.ejs %>
+
+        <div class="container-fluid">
+          <table>
+            <tr>
+              <td><label for="exercisename">Exercis Name</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= exercise.exercisename %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="bodypart">Choise Exercise</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= exercise.bodypart %></h6></td>
+            </tr>
+            <tr>
+              <td><label for="itinfo">Exercise Infomation</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= exercise.exeinfo %></h6></td>
+            </tr>
+            <tr>
+              <td><label for ="photo">Photo</label></td>
+              <td><p>-</p></td>
+              <td><div class="teacher-profile">
+                <% if (exercise.exephoto) { %>
+                  <img src="<%= exercise.exephoto %>" style="width:280px; height:280px; border-style:none;" alt="Exercise Photo">
+                <% } else { %>
+                  <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+                <% } %>
+              </div></td>
+            </tr>
+
+            <tr>
+              <td><label for="updated">Last Updated</label></td>
+              <td><p>-</p></td>
+              <td><h6><%= exercise.updated %></h6></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+    </div>
+  </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+  <% include ../partials/scripts.ejs %>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/nav.ejs %>
+        <div class="container-fluid">
+
+          <h1><%= title %></h1>
+
+          <ul>
+            <% if (exercises) { %>
+              <% exercises.forEach(function(exercise) { %>
+                  <li class="list-group-item">
+                    <a href="/exercises/<%=exercise._id%>"> <%= exercise.exercisename %></a>
+                  </li>
+              <% }); %>
+            <% } else { %>
+              <h3><%= title %></h3>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+  <% include ../partials/scripts.ejs %>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <% include ../partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include ../partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include ../partials/nav.ejs %>
+        <div class="container-fluid">
+          <br>
+          <h2>Owner Profile</h2>
+          <label for="name">Name :</label>
+          <h6><%= user.name %></h6>
+          <label for="name">Username :</label>
+          <h6><%= user.username %></h6>
+          <label for="name">Email :</label>
+          <h6><%= user.email %></h6>
+          <!-- <label for ="photo">Photo:</label><br>
+          <% if (user.photo) { %>
+            <img src="<%= user.photo %>" alt="Teacher Photo">
+          <% } else { %>
+            <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+          <% } %>
+
+          <%= typeof msg != 'undefined' ? msg : '' %>
+          <form class="" action="/teachers/add_photo" method="post" enctype="multipart/form-data">
+            <div class="file-field input-field">
+              <input type="file" name="myImage">
+              <input class="btn btn-primary" type="submit" value="Add Photo">
+            </div>
+          </form> -->
+          <!-- <form action="/teachers/add_photo" method="post">
+            <div class="file-field input-field">
+              <div class="btn grey">
+                <span>Image</span>
+                <input type="file" name="myImage">
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" name="file-path validate">
+              </div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+          </form> -->
+
+
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+  <% include ../partials/scripts.ejs %>
+</html>

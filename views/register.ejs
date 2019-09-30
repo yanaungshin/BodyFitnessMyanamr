@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/header.ejs %>
+  <body>
+    <div class="d-flex" id="wrapper">
+      <% include partials/sidebar.ejs %>
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <% include partials/nav.ejs %>
+        <div class="container-fluid">
+          <br><br>
+          <div class="col-md-3 m-auto">
+            <div class="card card-body">
+              <h1 class="text-center md-5">
+                <i class="fas fa-user-plus"></i>
+                Welcome
+              </h1>
+              <form action="/owners/register" method="post">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Name</label>
+                  <input 
+                  type="text" 
+                  pattern=".{6,}" 
+                  title="At least Six characters" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Your Name"
+                  name="name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email</label>
+                  <input 
+                  type="email" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Your Email"
+                  name="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Username</label>
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Username"
+                  name="username">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Password</label>
+                  <input 
+                  type="password" 
+                  pattern=".{6,}" 
+                  title="At least Six characters" 
+                  class="form-control" 
+                  id="exampleFormControlInput1" 
+                  placeholder="Enter Your Password"
+                  name="password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Confirm Password</label>
+                  <input 
+                  type="password" 
+                  pattern=".{6,}" 
+                  title="At least Six characters" 
+                  class="form-control" 
+                  id="exampleFormControlInput1"
+                  placeholder="Enter Your Confirm Password"
+                  name="password2">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                <div class="form-group">
+                    <a href="/owners/login"><span style="color: blue">If already have account!</span></a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+    <% include partials/footer.ejs %>
+  </body>
+  <% include partials/scripts.ejs %>
+</html>
