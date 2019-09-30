@@ -135,7 +135,6 @@ router.post('/edit/:id', upload.single('artphoto'), function(req, res, next){
   });
 });
 
-
 router.delete('/:id', function(req, res){
   if (req.user.type == 'admin') {
     let query = {_id:req.params.id}

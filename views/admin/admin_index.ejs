@@ -32,6 +32,7 @@
                                     <td><%= owner.name %></td>
                                     <td><%= owner.username %></td>
                                     <td><%= owner.email %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm" href="/admin/owner/<%=owner._id%>" data-id=<%=owner._id%>>Detail</a></td>
                                     <td><a class="btn btn-outline-danger btn-sm delete-owner" href="#" data-id=<%=owner._id%>>Delete</a></td>
                                   </tr>
                                 <% }); %>
@@ -66,6 +67,7 @@
                                     <td><%= center.city %></td>
                                     <td><%= center.phone %></td>
                                     <td><%= center.address %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm" href="/admin/center/<%=center._id%>" data-id=<%=center._id%>>Detail</a></td>
                                     <td><a class="btn btn-outline-danger btn-sm delete-admincenter" href="#" data-id=<%=center._id%>>Delete</a></td>
                                   </tr>
                                 <% }); %>
@@ -100,6 +102,7 @@
                                     <td><%= trainer.gym %></td>
                                     <td><%= trainer.age %></td>
                                     <td><%= trainer.address %></td>
+                                    <td><a class="btn btn-outline-danger btn-sm" href="/admin/trainer/<%=trainer._id%>" data-id=<%=trainer._id%>>Detail</a></td>
                                     <td><a class="btn btn-outline-danger btn-sm delete-trainer" href="#" data-id=<%=trainer._id%>>Delete</a></td>
                                   </tr>
                                 <% }); %>
