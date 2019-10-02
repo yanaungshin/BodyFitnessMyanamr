@@ -29,6 +29,7 @@ const app = express();
 let Center = require('./models/center');
 let Trainer = require('./models/trainer');
 let Exercise = require('./models/exercise');
+let Owner = require('./models/owner');
 
 //setup ejs
 app.engine('ejs', require('express-ejs-extend'));
@@ -116,6 +117,21 @@ app.get("/center_list", function(req, res){
         centers: centers
       });
     }
+  });
+});
+
+app.get("/my_gym", function(req, res){
+  Center.find({}, function (err, centers) {
+    Trainer.find({}, function (err, trainers) {
+      Owner.findById(centers.author, function (err, owner) {
+        res.render('my_gym', {
+          title: "My Gym",
+          centers: centers,
+          trainers: trainers,
+          author: owner
+        });
+      });
+    });
   });
 });
 
