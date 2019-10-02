@@ -21,12 +21,7 @@ router.get("/add", ensureAuthenticated, function(req, res){
   });
 });
 
-router.post('/add', upload.single('traphoto'), function(req, res){
-  req.checkBody('trainername', 'Trainername is required').notEmpty();
-
-  req.checkBody('otinfo', 'Other info is required').notEmpty();
-
-  //Get errors
+router.post('/add', upload.single('traphoto'), function(req, res) {
   let errors = req.validationErrors();
 
   if (errors) {
@@ -40,14 +35,15 @@ router.post('/add', upload.single('traphoto'), function(req, res){
     trainer.address = req.body.address;
     trainer.phone = req.body.phone;
     trainer.email = req.body.email;
-    // trainer.age = req.body.age;
-    // trainer.certificate = req.body.certificate;
+    trainer.age = req.body.age;
+    trainer.certificate = req.body.certificate;
+    if(req.file) trainer.certificatephoto = '/uploads/' + req.file.filename;
     trainer.trainerfees = req.body.trainerfees;
     if(req.file) trainer.traphoto = '/uploads/' + req.file.filename;
     trainer.gym = req.body.gym;
     trainer.classes = req.body.classes;
     trainer.author = req.user._id;
-    // trainer.trainfo = req.body.trainfo;
+    trainer.trainfo = req.body.trainfo;
     trainer.save(function(err){
       if(err){
         console.log(err);

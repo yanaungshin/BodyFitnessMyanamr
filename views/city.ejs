@@ -12,13 +12,11 @@
           <h1><%= title %></h1>
           <ul>
             <% centers.forEach(function(center) { %>
-                <!-- <h3>There are no article yet now !</h3> -->
                 <li class="list-group-item">
                   <a href="/centers/<%=center._id%>"> <%= center.centername %></a>
                 </li>
             <% }); %>
           </ul>
-
         </div>
       </div>
     </div>

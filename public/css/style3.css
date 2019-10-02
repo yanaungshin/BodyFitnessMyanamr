@@ -81,6 +81,9 @@ ul{
 .container-fluid{
   min-height: 89.3vh;
 }
+.trainer-text{
+  color: black;
+}
 
 footer{
 background: black;

@@ -7,7 +7,6 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <% include ../partials/nav.ejs %>
-        <section class="team-area section-gap" >
           <div class="container-fluid">
             <div class="row d-flex justify-content-center">
               <div class="menu-content pb-70 col-lg-8">
@@ -18,48 +17,31 @@
               </div>
             </div>
               <% if (trainers) { %>
-                <% trainers.forEach(function(trainer) { %>
-                  <div class="row justify-content-center d-flex align-items-center">
-                    <div class="col-md-3 single-team">
-                        <div class="trainer-photo">
-                          <% if (trainer.traphoto) { %>
-                            <img class="img-fluid" src="<%= trainer.traphoto %>" alt="">
-                            <div class="align-items-center justify-content-center d-flex">
-                          <a href="/trainers/<%=trainer._id%>"><i class="fa fa-facebook"></i></a>
-                            </div>
-                            <% } else { %>
-                              <img src="../images/noimage.svg" class="img-responsive" alt="no image">
-                            <% } %>
-                        </div>
-                        <div class="meta-text mt-30 text-center">
-                          <h4><a href="/trainers/<%=trainer._id%>"> <%= trainer.trainername %></a></h4>
-                        </div>
-                    </div>
-                <% }); %>
-              <% } else { %>
-                <h3><%= title %></h3>
-              <% } %>
+                      <div class="container">
+                          <div class="row">
+                            <% trainers.forEach(function(trainer) { %>
+                              <div class="col-md-4">
+                                  <div class="single-trainer">
+                                      <div class="trainer-img">
+                                        <% if (trainer.traphoto) { %>
+                                          <img src="<%= trainer.traphoto %>" alt="">
+                                          <% } else { %>
+                                            <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+                                          <% } %>
+                                      </div>
+                                      <div class="trainer-text">
+                                          <p><a href="/trainers/<%=trainer._id%>"> <%= trainer.trainername %></a></p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <% }); %>
+                          </div>
+                      </div>
+                      <% } else { %>
+                        <h3><%= title %></h3>
+                      <% } %>
             </div>
           </div>
-        </section>
-        <!-- End team Area -->
-        <!-- <div class="container-fluid">
-
-          <br>
-            <h1>Our Experienced Trainers</h1>
-            <br>
-            <ul>
-              <% if (trainers) { %>
-                <% trainers.forEach(function(trainer) { %>
-                    <li class="list-group-item">
-                      <a href="/trainers/<%=trainer._id%>"> <%= trainer.trainername %></a>
-                    </li>
-                <% }); %>
-              <% } else { %>
-                <h3><%= title %></h3>
-              <% } %>
-            </ul>
-      </div> -->
     </div>
   </div>
     <% include ../partials/footer.ejs %>

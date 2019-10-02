@@ -14,11 +14,38 @@
             <br>
             <ul>
               <% if (centers) { %>
+                <div class="container">
+                    <div class="row">
                 <% centers.forEach(function(center) { %>
-                    <li class="list-group-item">
+
+                              <div class="col-md-4">
+                                  <div class="single-features">
+                                      <div class="features-img">
+                                        <% if (center.artphoto) { %>
+                                          <img src="<%= center.artphoto %>" alt="">
+                                          <% } else { %>
+                                            <img src="../images/noimage.svg" class="img-responsive" alt="no image">
+                                            <% } %>
+                                      </div>
+                                      <div class="feature-text">
+                                          <div class="feature-icon">
+                                            <a href="/centers/<%=center._id%>"><img src="images/features/icon-3.png" alt=""></a>
+                                          </div>
+                                          <h5> <%= center.centername %></a></h5>
+                                          <p>A rep is the number of times you perform a specific exercise,
+                                              and a set is the number of cycles of reps that you complete.
+                                              For example, suppose you complete 15 reps of a bench press.
+                                              You would say you've completed "one set of 15 reps."</p>
+                                      </div>
+                                  </div>
+                              </div>
+
+                    <!-- <li class="list-group-item">
                       <a href="/centers/<%=center._id%>"> <%= center.centername %></a>
-                    </li>
+                    </li> -->
                 <% }); %>
+              </div>
+          </div>
               <% } else { %>
                 <h3><%= title %></h3>
               <% } %>
