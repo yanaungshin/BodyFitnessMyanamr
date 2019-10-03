@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
   <% include ../partials/header.ejs %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style >
+      a {
+        position: relative;
+      }
+      a:active {
+        top: 8px;
+      }
+    </style>
+  </head>
   <body>
     <div class="d-flex" id="wrapper">
       <% include ../partials/sidebar.ejs %>

@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
   <% include partials/header.ejs %>
+  <head>
+    <meta name= "viewport" content= "width=device-width, initial-scale=1">
+    <style>
+      table {
+        border:2px solid green;
+      }
+      th {
+        height: 20px;
+        text-align: center;
+        border: 1px solid blue;
+      }
+      td {
+        vertical-align: bottom;
+        height: 50px;
+        border: 1px solid green;
+      }
+    </style>
+  </head>
   <body>
     <div class="d-flex" id="wrapper">
       <% include partials/sidebar.ejs %>
@@ -8,33 +26,52 @@
       <div id="page-content-wrapper">
         <% include partials/nav.ejs %>
         <div class="container-fluid">
-          <h1><%= title %></h1>
-          <table>
-            <tr>
-              <td><ul>
-                <% if (centers && centers.length > 0) { %>
-                  <% centers.forEach(function(center) { %>
-                    <li class="list-group-item">
-                      <a href="/centers/<%=center._id%>"> <%= center.centername %></a>
-                    </li>
-                  <% }); %>
-                <% } else { %>
-                  <h1 style="text-align:right;"> Sorry ! No Center !</h1>
-                <% } %>
-              </ul></td>
+          <h1>My Fitness Centers and Trainers</h1>
 
-              <td><ul>
-                <% if (trainers && trainers.length > 0) { %>
-                  <% trainers.forEach(function(trainer) { %>
-                    <li class="list-group-item">
-                      <a href="/trainers/<%=trainer._id%>"> <%= trainer.trainername %></a>
-                    </li>
-                  <% }); %>
-                <% } else { %>
-                  <h1 style="text-align:right;"> Sorry ! No Trainer !</h1>
-                <% } %>
-              </ul></td>
+          <table align="center">
+            <tr>
+              <th colspan="4"><%= title %></th>
             </tr>
+            <tr>
+              <th>Center Name</th>
+              <th>City</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <% if (centers && centers.length > 0) { %>
+                <% centers.forEach(function(center) { %>
+            </tr>
+
+                <td><a href="/centers/<%=center._id%>"><%= center.centername %></td>
+                <td><%= center.city %></td>
+                <td><%= center.address %></td>
+                <td><%= center.phone %></td>
+                <% }); %>
+              <% } else { %>
+                <h1 style="text-align:right;"> Sorry ! No Center !</h1>
+              <% } %>
+          </table>
+          <br><br><br>
+
+          <table align="center">
+            <tr>
+              <th colspan="4">My Trainers</th>
+            </tr>
+            <tr>
+              <th>Trainer Name</th>
+              <th>Address</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <% if (trainers && trainers.length > 0) { %>
+                <% trainers.forEach(function(trainer) { %>
+            </tr>
+                <td><a href="/trainers/<%=trainer._id%>"><%= trainer.trainername %></td>
+                <td><%= trainer.address %></td>
+                <td><%= trainer.phone %></td>
+                <td><%= trainer.email %></td>
+                <% }); %>
+              <% } else { %>
+                <h1 style="text-align:right;"> Sorry ! No Trainer !</h1>
+              <% } %>
           </table>
         </div>
 

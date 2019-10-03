@@ -19,13 +19,13 @@ const TrainersSchema = new trainerSchema({
     type: String,
     required: true
   },
-  // age:{
-  //   type: String,
-  //   required: true
-  // },
-  // certificate:{
-  //   type: [String]
-  // },
+  age:{
+    type: String,
+    required: true
+  },
+  certificate:{
+    type: [String]
+  },
   trainerfees:{
     type: String,
     required: true
@@ -43,9 +43,9 @@ const TrainersSchema = new trainerSchema({
     type: String,
     required: true
   },
-  // trainfo:{
-  //   type: [String]
-  // },
+  trainfo:{
+    type: [String]
+  },
 });
 TrainersSchema.virtual('classes_name').get(function(){
   var arr =[];
@@ -79,30 +79,30 @@ TrainersSchema.virtual('classes_name').get(function(){
   return arr;
 })
 
-// TrainersSchema.virtual('trainfo_name').get(function(){
-//   var arr =[];
-//   for(var i in this.trainfo ) {
-//     switch (this.trainfo[i]) {
-//       case '1':
-//         arr.push('Industry switchkill');
-//         break;
-//       case '2':
-//         arr.push('Ennergy and Commitement');
-//         break;
-//       case '3':
-//         arr.push('Personal');
-//         break;
-//       case '4':
-//         arr.push('Demonstrable passion');
-//         break;
-//       case '5':
-//         arr.push('NSCA');
-//         break;
-//       default:
-//
-//     }
-//   }
-//   return arr;
-// })
+TrainersSchema.virtual('trainfo_name').get(function(){
+  var arr =[];
+  for(var i in this.trainfo ) {
+    switch (this.trainfo[i]) {
+      case '1':
+        arr.push('Industry switchkill');
+        break;
+      case '2':
+        arr.push('Ennergy and Commitement');
+        break;
+      case '3':
+        arr.push('Personal');
+        break;
+      case '4':
+        arr.push('Demonstrable passion');
+        break;
+      case '5':
+        arr.push('NSCA');
+        break;
+      default:
+
+    }
+  }
+  return arr;
+})
 
 let Trainer = module.exports = mongoose.model('Trainer', TrainersSchema);

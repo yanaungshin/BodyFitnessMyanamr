@@ -37,7 +37,6 @@ router.post('/add', upload.single('traphoto'), function(req, res) {
     trainer.email = req.body.email;
     trainer.age = req.body.age;
     trainer.certificate = req.body.certificate;
-    if(req.file) trainer.certificatephoto = '/uploads/' + req.file.filename;
     trainer.trainerfees = req.body.trainerfees;
     if(req.file) trainer.traphoto = '/uploads/' + req.file.filename;
     trainer.gym = req.body.gym;
@@ -86,12 +85,12 @@ router.post('/edit/:id', upload.single('traphoto'), function(req, res){
   trainer.address = req.body.address;
   trainer.phone = req.body.phone;
   trainer.email = req.body.email;
-  // trainer.age = req.body.age;
-  // trainer.certificate = req.body.certificate;
+  trainer.age = req.body.age;
+  trainer.certificate = req.body.certificate;
   trainer.trainerfees = req.body.trainerfees;
   trainer.gym = req.body.gym;
   trainer.classes = req.body.classes;
-  // trainer.trainfo = req.body.trainfo;
+  trainer.trainfo = req.body.trainfo;
   trainer.author = req.user._id;
   if(req.file) trainer.traphoto = '/uploads/' + req.file.filename;
   let query = {_id:req.params.id}
@@ -114,23 +113,19 @@ router.delete('/:id', function(req, res){
   let query = {_id:req.params.id}
 
   Trainer.findById(req.params.id, function(err, trainer){
-    if (trainer.author != req.user._id) {
-      res.status(500).send();
-    } else {
       Trainer.remove(query, function(err){
         if (err) {
           console.log(err);
         }
         res.send('Success');
       });
-    }
   });
 });
 
 router.get('/delete/:id', function (req, res) {
   Trainer.findByIdAndRemove(req.params.id , function(err, rtn){
     if(err) throw err;
-    res.redirect('/trainers/trainer_list');
+    res.redirect('/trainer_list');
   });
 });
 
