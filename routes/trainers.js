@@ -9,7 +9,7 @@ let Center = require('../models/center');
 
 const ObjectId = require('mongoose').Types.ObjectId
 
-var upload = multer({ dest: './public/uploads/'});
+var upload = multer({ dest: '/public/uploads/'});
 
 router.get("/add", ensureAuthenticated, function(req, res){
   Center.find({}, function(err, rtn){
@@ -21,7 +21,7 @@ router.get("/add", ensureAuthenticated, function(req, res){
   });
 });
 
-router.post('/add', upload.single('traphoto'), function(req, res) {
+router.post('/add', upload.array('photo',3), function(req, res, next) {
   let errors = req.validationErrors();
 
   if (errors) {
@@ -38,7 +38,11 @@ router.post('/add', upload.single('traphoto'), function(req, res) {
     trainer.age = req.body.age;
     trainer.certificate = req.body.certificate;
     trainer.trainerfees = req.body.trainerfees;
-    if(req.file) trainer.traphoto = '/uploads/' + req.file.filename;
+    if (req.files && req.files.length == 2) {
+      console.log('call file');
+      trainer.certifiphoto = req.files[0].path;
+      trainer.traphoto = req.files[1].path;
+    }
     trainer.gym = req.body.gym;
     trainer.classes = req.body.classes;
     trainer.author = req.user._id;
@@ -79,7 +83,7 @@ router.get('/edit/:id', ensureAuthenticated, function (req, res) {
   });
 });
 
-router.post('/edit/:id', upload.single('traphoto'), function(req, res){
+router.post('/edit/:id', upload.array('photo',3), function(req, res){
   let trainer = {};
   trainer.trainername = req.body.trainername;
   trainer.address = req.body.address;

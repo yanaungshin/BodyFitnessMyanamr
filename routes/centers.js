@@ -73,8 +73,12 @@ router.post('/add', upload.single('artphoto'), function(req, res, next){
     center.opttime = req.body.opttime;
     center.closetime = req.body.closetime;
     center.memberfees = req.body.memberfees;
+    center.dailymemberfees = req.body.dailymemberfees;
+    center.yearmemberfees = req.body.yearmemberfees;
     if(req.file) center.artphoto = '/uploads/' + req.file.filename ;
     center.classes = req.body.classes;
+    center.promotion = req.body.promotion;
+    center.discount = req.body.discount;
     center.author = req.user._id;
     center.otinfo = req.body.otinfo;
 
@@ -119,7 +123,11 @@ router.post('/edit/:id', upload.single('artphoto'), function(req, res, next){
   center.opttime = req.body.opttime;
   center.closetime = req.body.closetime;
   center.memberfees = req.body.memberfees;
+  center.dailymemberfees = req.body.dailymemberfees;
+  center.yearmemberfees = req.body.yearmemberfees;
   center.classes = req.body.classes;
+  center.promotion = req.body.promotion;
+  center.discount = req.body.discount;
   center.otinfo = req.body.otinfo;
   center.author = req.user._id;
   if(req.file) center.artphoto = '/uploads/' + req.file.filename;

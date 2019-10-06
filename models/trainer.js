@@ -26,6 +26,9 @@ const TrainersSchema = new trainerSchema({
   certificate:{
     type: [String]
   },
+  certifiphoto:{
+    type: String
+  },
   trainerfees:{
     type: String,
     required: true
@@ -94,6 +97,32 @@ TrainersSchema.virtual('trainfo_name').get(function(){
         break;
       case '4':
         arr.push('Demonstrable passion');
+        break;
+      case '5':
+        arr.push('NSCA');
+        break;
+      default:
+
+    }
+  }
+  return arr;
+})
+
+TrainersSchema.virtual('trainfo_name').get(function(){
+  var arr =[];
+  for(var i in this.certificate ) {
+    switch (this.certificate[i]) {
+      case '1':
+        arr.push('NASM');
+        break;
+      case '2':
+        arr.push('ISSA');
+        break;
+      case '3':
+        arr.push('ACE');
+        break;
+      case '4':
+        arr.push('ACSM');
         break;
       case '5':
         arr.push('NSCA');

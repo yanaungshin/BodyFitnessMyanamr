@@ -56,22 +56,41 @@
               <input type="nember" class="form-control" id="exampleFormControlInput6" name="memberfees">
             </div>
             <div class="form-group">
+              <label for="exampleFormControlInput1">Daily Member fees</label>
+              <input type="nember" class="form-control" id="exampleFormControlInput7" name="dailymemberfees">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Year Member fees</label>
+              <input type="nember" class="form-control" id="exampleFormControlInput8" name="yearmemberfees">
+            </div>
+            <div class="form-group">
               <label for="photo">Photo:</label>
               <input type="file" name="artphoto" accept="image/*"><p></p>
             </div>
-            <div class="form-group">
+            <div class="from-group">
               <label for="exampleFormControlInput1">Select Class</label>
-              <select class="mdb-select md-form" multiple name="classes">
-                <option value="" disabled selected>Choose your Class</option>
-                <option value="yoga" name="classes">Yoga</option>
-                <option value="kickboxing" name="classes">Kickboxing</option>
-                <option value="personaltraining" name="classes">Personal Training</option>
-                <option value="zumba" name="classes">Zumba</option>
-                <option value="Kilocycle" name="classes">Kilocycle</option>
-                <option value="barre-less-barre" name="classes">Barre-less-barre</option>
-                <option value="dance" name="classes">Cardio funk Dance Party</option>
+              <input type="checkbox" name="classes" value="yoga">Yoga
+              <input type="checkbox" name="classes" value="kickboxing">Kickboxing
+              <input type="checkbox" name="classes" value="personaltraining">Personal Training
+              <input type="checkbox" name="classes" value="zumba">Zumba
+              <input type="checkbox" name="classes" value="Kilocycle">Kilocycle
+              <input type="checkbox" name="classes" value="barre-less-barre">Barre-less-barre
+              <input type="checkbox" name="classes" value="dance">Cardio funk Dance Party
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Promotion</label>
+              <select class="mdb-select md-form" multiple name="promotion">
+                <option value="3Months Play+ 1Month Free" disabled selected>3months Play+ 1Month Free</option>
+                <option value="2Months Play+ 1Month Free" name="promotion">2months play+ 1month Free</option>
+                <option value="5members play+ 1member Free" name="promotion">5members play+ 1member Free</option>
+                <option value="4mambers play+ 1member Free" name="promotion">4mambers play+ 1member Free</option>
               </select>
             </div>
+            <div class="form-group">
+              <label for="discount">Discount</label>
+              <input type="nember" class="form-control" id="exampleFormControlInput9" name="discount">
+            </div>
+
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Other Infomation</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="otinfo">

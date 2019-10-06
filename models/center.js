@@ -32,11 +32,25 @@ const NewsSchema = new centerSchema({
     type: String,
     required: true
   },
+  dailymemberfees:{
+    type: String,
+    required: true
+  },
+  yearmemberfees:{
+    type: String,
+    required: true
+  },
   artphoto:{
     type: String
   },
   classes:{
     type: [String]
+  },
+  promotion:{
+    type: [String]
+  },
+  discount:{
+    type: String,
   },
   author:{
     type: String,
@@ -58,6 +72,38 @@ const NewsSchema = new centerSchema({
 NewsSchema.virtual('updated_date').get(function(){
   return dateformat(this.updated, 'dd/mm/yyyy. HH:MM');
 });
+NewsSchema.virtual('classes_name').get(function(){
+  var arr =[];
+  for(var i in this.classes ) {
+    switch (this.classes[i]) {
+      case '1':
+        arr.push('Yoga');
+        break;
+      case '2':
+        arr.push('KickBoxing');
+        break;
+      case '3':
+        arr.push('Personal Training');
+        break;
+      case '4':
+        arr.push('Zumba');
+        break;
+      case '5':
+        arr.push('Kilocycle');
+        break;
+      case '6':
+        arr.push('barre-less-barre');
+        break;
+      case '7':
+        arr.push('Cardio funk dance party');
+        break;
+      default:
+
+    }
+  }
+  return arr;
+})
+
 NewsSchema.virtual('classes_name').get(function(){
   var arr =[];
   for(var i in this.classes ) {
